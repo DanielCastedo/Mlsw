@@ -12,6 +12,7 @@ psycopg2-binary==2.9.9
 requests==2.31.0
 gunicorn==21.2.0
 
-# TensorFlow (opcional: incrementa mucho el tamaño de la imagen)
-tensorflow==2.20.0
+# NOTA: TensorFlow NO está incluido por defecto para acelerar builds.
+# Si necesitás TensorFlow en producción, añade la línea siguiente
+# tensorflow==2.20.0
 
