@@ -8,10 +8,12 @@ WORKDIR /app
 
 # Dependencias del sistema (psycopg2 y compilación de paquetes si fuera necesario)
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       build-essential \
-       libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+     && apt-get install -y --no-install-recommends \
+         build-essential \
+         libpq-dev \
+         curl \
+         unzip \
+     && rm -rf /var/lib/apt/lists/*
 
 # Copiar requirements e instalar
 COPY requirements.txt /app/requirements.txt
@@ -21,8 +23,12 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copiar el resto del proyecto
 COPY . /app
 
+# Copiar script de arranque que descargará modelos si es necesario
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
 # Puerto por defecto
 EXPOSE 5000
 
-# Comando de arranque: usar gunicorn (expande ${PORT} en shell)
-CMD ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:${PORT:-5000} --workers 2 --threads 2"]
+# Ejecutar script de arranque (descarga assets y lanza gunicorn)
+CMD ["sh", "/app/start.sh"]
