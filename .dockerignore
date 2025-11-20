@@ -1,0 +1,13 @@
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.git
+.gitignore
+*.keras
+*.h5
+modelo_precio.pkl
+modelo_popularidad.pkl
+modelo_precio_tf/*
