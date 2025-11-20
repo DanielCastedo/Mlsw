@@ -1,0 +1,70 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Test and coverage
+.pytest_cache/
+coverage/
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Databases
+*.sqlite3
+*.db
+
+# Model artifacts (binaries) — normalmente NO subir modelos grandes al repo
+# Si quieres que el modelo forme parte del repo para Render, elimina estas líneas
+modelo.h5
+modelo.keras
+modelo_precio_tf/
+
+# Checkpoints and TensorFlow/PyTorch artifacts
+*.ckpt
+checkpoint
+
+# Large data files (CSV, etc.) — si necesitas alguno en el repo, añade una excepción
+*.csv
+# Para incluir una CSV concreta, descomenta la siguiente línea y modifica el nombre:
+#!productos_popularidad.csv
+
+# Node / build artifacts (no aplican directamente pero inofensivos)
+node_modules/
+
+# Keep important files tracked: requirements, Dockerfile, scripts, code, docs
+# - `requirements.txt` stays tracked
+# - `Dockerfile` stays tracked
+# - `app.py`, `train_*.py`, `test_*.py`, `*.sql`, `*.md` stay tracked
+
