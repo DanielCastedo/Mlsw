@@ -1,0 +1,25 @@
+# render.yaml - ejemplo de configuración para Render.com
+# NO incluir secretos en este archivo. Define nombres de variables que luego
+# deberás configurar en el Dashboard de Render o en la CLI.
+
+services:
+  - type: web
+    name: mlsw-web
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: MODEL_PRECIO_URL
+        value: ""
+      - key: MODEL_POP_URL
+        value: ""
+      - key: PRODUCTOS_CSV_URL
+        value: ""
+      - key: MODEL_TF_URL
+        value: ""
+    # Para secretos, referencia su nombre aquí y crea el secreto en el Dashboard
+    # secrets:
+    #  - DB_PASSWORD
